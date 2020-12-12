@@ -1,0 +1,19 @@
+DuplicateFileFinder.HashKey(fileLength=73744, hash=2e2e8af12b9cacd5b8cb8add9c5c4fd5c3a352c3, hashAlgo=SHA1)
+[
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0186.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0222.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0271.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0322.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186(1).JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222(1).JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271(1).JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271.JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322(1).JPG,
+D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322.JPG
+]
+
+
+DuplicateFileFinder.HashKey(fileLength=73744, hash=7def8c92214f0da93da40dfc52d3507238ef18de, hashAlgo=SHA1)[D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0186.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0222.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0271.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0322.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322.JPG]
+DuplicateFileFinder.HashKey(fileLength=73744, hash=ff4df2c1de4e5e2bb70dfe0aeafe233c6b522ec8, hashAlgo=SHA1)[D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0186.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0222.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0271.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2007-05-16\IMG_0322.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0186.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0222.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0271.JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322(1).JPG, D:\google-takeout\3rd-go\Takeout\GooglePhotos\2017-08-28\IMG_0322.JPG]
