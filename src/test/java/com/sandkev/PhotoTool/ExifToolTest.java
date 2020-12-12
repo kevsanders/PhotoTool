@@ -19,6 +19,7 @@ class ExifToolTest {
     void setUp() {
 		System.setProperty("exiftool.path", "D:/Tools/bin/exiftool.exe");
 		System.setProperty("exiftool.debug", "false");
+		System.setProperty("exiftool.processCleanupDelay", "0");
         tool = new ExifTool(STAY_OPEN);
         //tool = new ExifTool();
     }
