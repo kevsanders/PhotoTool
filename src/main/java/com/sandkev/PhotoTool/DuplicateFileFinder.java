@@ -59,7 +59,10 @@ public class DuplicateFileFinder {
         HASH_ALGO.set(task.getHashProvider().describe());
         this.task = task;
 
-        String storagePath = "src/main/resources/static/index";
+        //reduce processing to only look for potential duplicates
+        DUPLICATES_ONLY.set(task.isDuplicatesOnly());
+
+        String storagePath = "src/main/resources/static";
         INDEXER.set(new Indexer(storagePath));
 
         System.setProperty("exiftool.path", "D:/Tools/bin/exiftool.exe");
@@ -92,8 +95,6 @@ public class DuplicateFileFinder {
         CountDownLatch latch = new CountDownLatch(TOTAL.get());
         LATCH.set(latch);
 
-        //reduce processing to only look for potential duplicates
-        DUPLICATES_ONLY.set(task.isDuplicatesOnly());
 
         // Specify the size of the ring buffer, must be power of 2.
         int bufferSize = 32;
@@ -364,9 +365,12 @@ public class DuplicateFileFinder {
         AtomicLong counter = new AtomicLong();
         Multimap<Long, File> fileSizeMapWk = TreeMultimap.create();
 
-        Collection<File> keys = INDEXER.get().findKeys("*", 0, 1000000);
-        files.removeAll(keys);
-        log.info("skipping {} already indexed files", keys.size());
+        if(!DUPLICATES_ONLY.get()) {
+            //this is a time saver meant to prevent re-proccessing files we already have indexed
+            Collection<File> keys = INDEXER.get().findKeys("*", 0, 1000000);
+            files.removeAll(keys);
+            log.info("skipping {} already indexed files", keys.size());
+        }
 
         for (File file : files) {
             Long fileLength = Long.valueOf(file.length());
@@ -455,14 +459,15 @@ public class DuplicateFileFinder {
         PhotoTask task = PhotoTask.builder()
                 .paths(
                         //"D:\\sources\\_github\\PhotoTool\\src\\test\\resources\\test-1"
-                        "D:/Media/photos", "D:/google-takeout/3rd-go/Takeout/GooglePhotos", "D:/google-takeout/3rd-go/Takeout/example"
+                        //"D:/Media/photos", "D:/google-takeout/3rd-go/Takeout/GooglePhotos", "D:/google-takeout/3rd-go/Takeout/example"
+                        "D:/Media/photos", "D:/google-takeout/Takeout/"
                         //"D:\\google-takeout\\3rd-go\\Takeout\\GooglePhotos\\2010-09-05"
                 )
                 .wildcards(
                         "*.3gp", "*.AVI", "*.bmp", "*.gif", "*.HEIC", "*.jpeg",
                         "*.jpg", "*.m4v", "*.mov", "*.mp4", "*.MPG", "*.png", "*.tif"
                 )
-                .reportFile("all-files-v2.csv")
+                .reportFile("all-files-v1.csv")
                 .duplicatesOnly(false)
                 .build();
 
@@ -474,8 +479,9 @@ public class DuplicateFileFinder {
         //duplicateFileFinder.deleteFromReport(new File("build/report-v5.csv"));
         //duplicateFileFinder.deleteFromReport(new File("build/report-v6.csv"));
 
-
-        doIndex(new File("build/" + task.getReportFile()));
+        if(!task.isDuplicatesOnly()) {
+            doIndex(new File("build/" + task.getReportFile()));
+        }
 
     }
 
@@ -495,6 +501,9 @@ public class DuplicateFileFinder {
     }
 
     private static void doIndex(File report) throws IOException, SQLException {
+        doIndex(report, INDEXER.get());
+    }
+    private static void doIndex(File report, Indexer indexer) throws IOException, SQLException {
         int counter = 0;
         ResultSet rs = new Csv().read(new FileReader(report), new String[]{"HashKey", "duplicate", "baseName", "fileDate", "keep"});
         rs.next();//skip the header row
@@ -513,7 +522,7 @@ public class DuplicateFileFinder {
                         .name(rs.getString("baseName"))
                         .keepFlag(rs.getInt("keep"))
                         .build();
-                INDEXER.get().addIndex(photo);
+                indexer.addIndex(photo);
                 if (counter++ % 1000 == 0) {
                     log.info("indexing [{}]: {}", counter, photo);
                 }

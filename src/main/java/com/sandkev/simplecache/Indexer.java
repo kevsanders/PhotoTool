@@ -39,6 +39,11 @@ public class Indexer implements Closeable {
     private static final Logger logger = LogManager.getLogger();
     public static final int FLUSH_SIZE = 250;
 
+    public void merge(String index) throws IOException {
+        IndexWriter indexWriter = getIndexWriter(index);
+        indexWriter.forceMerge(10);
+    }
+
     enum ContextKeys{PARENT_ID, DATA_TYPE}
 
     private final static ConcurrentHashMap<File, IndexWriter> indexWriters = new ConcurrentHashMap<>();

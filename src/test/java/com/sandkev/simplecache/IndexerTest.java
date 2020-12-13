@@ -13,7 +13,7 @@ class IndexerTest {
 
     @Test
     void canFind() throws IOException {
-        String storagePath = "src/main/resources/static/index";
+        String storagePath = "src/main/resources/static";
         Indexer indexer = new Indexer(storagePath);
 
 //        Collection<PhotoDoc> keys = indexer.findKeys("file:D:\\google-takeout\\3rd-go\\Takeout\\GooglePhotos\\2018-12-08\\_2fstorage_2femulated_2f0_2fWhatsApp_2fMedia_2f(4).mp4", 0, 10);
